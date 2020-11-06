@@ -1,5 +1,4 @@
 import { Component } from 'react'
-import {DropzoneArea} from 'material-ui-dropzone'
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +22,9 @@ class App extends Component {
       <div className="container">
         <div className="row">
           <div className="form-group files">
-          <DropzoneArea acceptedFiles={['.csv']} />
+            <label>Upload files here</label>
+            <input className="form-control" onChange={this.onChangeHandler} type="file" name="file" 
+              accept=".csv, .xlsx, .xls" ></input>
           </div>
         </div>
       </div>
