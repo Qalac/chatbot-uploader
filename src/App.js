@@ -1,4 +1,8 @@
-import { Component } from 'react'
+import { Component } from 'react';
+import axios from 'axios';
+import './App.css';
+import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import 'react-pro-sidebar/dist/css/styles.css';
 
 class App extends Component {
   constructor(props) {
@@ -7,27 +11,37 @@ class App extends Component {
       selectedFile: null
     }
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
   }
 
   onChangeHandler = e => {
-    console.log(e.target.files[0])
     this.setState({
       selectedFile: e.target.files[0],
-      loaded: 0
     })
   }
 
+  onClickHandler = () => {
+    const data = new FormData()
+    data.append('file', this.state.selectedFile)
+     axios.post("http://127.0.0.1:5000/upload", data)
+       .then(res => {
+         console.log(res.status)
+       })
+       .catch(err => console.log(err))
+  }
+
+
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="form-group files">
-            <label>Upload files here</label>
-            <input className="form-control" onChange={this.onChangeHandler} type="file" name="file" 
-              accept=".csv, .xlsx, .xls" ></input>
-          </div>
-        </div>
-      </div>
+      <ProSidebar>
+        <Menu iconShape="square">
+          <MenuItem icon={<FaGem />}>Dashboard</MenuItem>
+          <SubMenu title="Components" icon={<FaHeart />}>
+            <MenuItem>Component 1</MenuItem>
+            <MenuItem>Component 2</MenuItem>
+          </SubMenu>
+        </Menu>
+      </ProSidebar>
     );
   }
 }
@@ -35,14 +49,16 @@ class App extends Component {
 
 
 
-
-
-
-
-
-
-
-
+{/* <div className="file-form">
+        <div className="input-group mb-3">
+          <div className="custom-file">
+            <input type="file" accept=".csv, .txt" onChange={this.onChangeHandler} />
+          </div>
+          <div className="input-group-append">
+          <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
+          </div>
+        </div>
+      </div> */}
 
 
 
