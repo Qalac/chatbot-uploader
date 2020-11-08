@@ -1,6 +1,11 @@
-.uploader {
+/* .uploader {
     padding-left: 12px;
     padding-right: 12px;
     padding-top: 10%;
     align-items: center;
-}
+    text-align: center;
+} */
+
+.uploader {
+    padding-left: auto;
+  }
