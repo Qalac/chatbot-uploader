@@ -1,11 +1,7 @@
-/* .uploader {
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-top: 10%;
-    align-items: center;
-    text-align: center;
-} */
-
 .uploader {
-    padding-left: auto;
-  }
+    margin: 20px 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 5%;
+}
+

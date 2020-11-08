@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       selectedFile: null,
       fileName: 'Please choose file',
-      message: 'nn'
+      message: ''
     }
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onClickHandler = this.onClickHandler.bind(this);
@@ -22,13 +22,15 @@ class App extends Component {
     })
   }
 
-  onClickHandler = () => {
+  onClickHandler = (e) => {
+    e.preventDefault();
     const data = new FormData()
     data.append('file', this.state.selectedFile)
      axios.post("http://45.32.16.104/upload", data)
        .then(res => {
          this.setState({
-           message: res.data.response
+           message: res.data.response,
+           fileName: 'want to upload another file?'
          })
        })
        .catch(err => console.log(err))
@@ -57,9 +59,9 @@ class App extends Component {
               {this.state.fileName}
             </label>
           </div>
-        </div><br />
-        <Button onClick={this.onClickHandler}>Upload</Button>
-        {this.state.message}
+        </div><br/>
+        <Button onClick={this.onClickHandler}>submit</Button><br/>
+        <p/>{this.state.message.toLowerCase()}
       </div>
     );
   }
