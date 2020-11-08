@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       selectedFile: null,
       fileName: 'Please choose file',
-      message: 'nnn'
+      message: 'nn'
     }
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onClickHandler = this.onClickHandler.bind(this);
@@ -37,7 +37,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="uploader">
         <div className="input-group">
           <div className="input-group-prepend">
             <span className="input-group-text" id="inputGroupFileAddon01">
