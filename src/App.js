@@ -6,7 +6,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedFile: null
+      selectedFile: null,
+      fileName: 'Please select file'
     }
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onClickHandler = this.onClickHandler.bind(this);
@@ -47,7 +48,7 @@ class App extends Component {
             accept=".csv"
           />
           <label className="custom-file-label" htmlFor="inputGroupFile01">
-            Choose file
+            {this.state.fileName}
           </label>
         </div>
       </div>
