@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
-import './App.css';
 import {Button} from 'react-bootstrap'
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -64,19 +64,6 @@ class App extends Component {
     );
   }
 }
-
-
-{/* <div className="file-form">
-        <div className="input-group mb-3">
-          <div className="custom-file">
-            <input type="file" accept=".csv, .txt" onChange={this.onChangeHandler} />
-          </div>
-          <div className="input-group-append">
-          <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
-          </div>
-        </div>
-      </div> */}
-
 
 
 export default App;
